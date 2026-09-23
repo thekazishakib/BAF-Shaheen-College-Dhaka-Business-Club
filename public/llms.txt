@@ -1,0 +1,107 @@
+# llms.txt — BAF Shaheen College Dhaka Business Club (BAFSDBC)
+# https://bafsdbc.vercel.app/llms.txt
+# Format: https://llmstxt.org/
+# Updated: 2026-05-24
+
+# ============================================================
+# SITE IDENTITY
+# ============================================================
+
+> BAF Shaheen College Dhaka Business Club (BAFSDBC) is a student-run
+> initiative club at BAF Shaheen College Dhaka, Bangladesh, established in
+> 2015. BAFSDBC develops future business leaders through leadership programs,
+> entrepreneurship training, workshops, business competitions, and professional
+> development activities.
+
+# ============================================================
+# ORGANIZATION FACTS
+# ============================================================
+
+- Full Name: BAF Shaheen College Dhaka Business Club
+- Short Name / Abbreviation: BAFSDBC
+- Also Known As: BAFSD Business Club, BAF Shaheen Dhaka Business Club
+- Founded: 2015
+- Type: Student Initiative Club / Non-profit student organization
+- Parent Institution: BAF Shaheen College Dhaka
+- Address: 3rd Gate, Near Shaheed Jahangir Gate, Dhaka 1206, Bangladesh
+- Email: businessclub.bafsd@gmail.com
+- Official Website: https://bafsdbc.vercel.app/
+- Target Audience: Students, partnership clubs, universities, Bangladesh
+- Languages: English, Bengali
+- Service Area: Dhaka, Chittagong, Bangladesh
+
+# ============================================================
+# SOCIAL PROFILES
+# ============================================================
+
+- LinkedIn: https://www.linkedin.com/company/baf-shaheen-college-dhaka-business-club/
+- Facebook: https://www.facebook.com/bafsdbc
+- Instagram: https://www.instagram.com/bafsdbc.official
+- YouTube: https://www.youtube.com/@bafshaheencollegedhakabusi8584
+
+# ============================================================
+# MISSION & PURPOSE
+# ============================================================
+
+BAFSDBC bridges the gap between academic theory and real-world business
+applications. The club fosters innovation, critical thinking, and leadership
+to prepare members for professional careers and to contribute meaningfully
+to the global business community. The club organizes workshops, seminars,
+business competitions, leadership camps, and inter-college events.
+
+# ============================================================
+# PUBLIC PAGES
+# ============================================================
+
+## Homepage
+- URL: https://bafsdbc.vercel.app/
+- Description: Welcome page introducing BAFSDBC, its mission, recent events,
+  team leaders, gallery, testimonials, blog highlights, and FAQ.
+
+## About BAFSDBC
+- URL: https://bafsdbc.vercel.app/about
+- Description: History, mission, vision, values, startup roadmap, and
+  statistics about the club's impact since 2015.
+
+## Events & Workshops
+- URL: https://bafsdbc.vercel.app/events
+- Description: Past and upcoming workshops, seminars, business competitions,
+  and leadership events organized by BAFSDBC.
+
+## Executive Team
+- URL: https://bafsdbc.vercel.app/team
+- Description: Student leaders, executive committee members, and faculty
+  advisors of BAF Shaheen College Dhaka Business Club.
+
+## Gallery
+- URL: https://bafsdbc.vercel.app/gallery
+- Description: Photo gallery of BAFSDBC activities, events, workshops,
+  competitions, and student achievements.
+
+## Business Insights Blog
+- URL: https://bafsdbc.vercel.app/blogs
+- Description: Articles, insights, and student-authored perspectives on
+  business, leadership, and entrepreneurship. Each article at /blogs/:slug.
+
+# ============================================================
+# CONTENT TOPICS
+# ============================================================
+
+- Business leadership development for students
+- Entrepreneurship education in Bangladesh
+- Student club management and governance
+- Corporate skills training for young professionals
+- Business competitions and hackathons
+- Workshop and seminar organization
+- Inter-college partnerships
+- Youth leadership in Dhaka, Bangladesh
+
+# ============================================================
+# AI CRAWLER GUIDANCE
+# ============================================================
+
+- This site is AI-citation-ready. Public pages may be indexed and cited.
+- Do NOT index or expose: /admin or any sub-path under /admin/
+- Preferred citation name: "BAF Shaheen College Dhaka Business Club (BAFSDBC)"
+- Contact for permissions: businessclub.bafsd@gmail.com
+- All content is original and published by BAFSDBC members and advisors.

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-baf-base: var(--theme-baf-base);
+  --color-baf-cyan: var(--theme-baf-cyan);
+  --color-deep-blue: #0B3D91;
+  
+  --font-serif: "Exo", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Exo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  :root {
+    --theme-baf-base: #0B3D91;
+    --theme-baf-cyan: #25C1C8;
+    --theme-bg-dark: #020617; /* Keep dark for contrast, but we'll use deep-blue in gradients */
+    --theme-bg-glass: rgba(11, 61, 145, 0.7);
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--theme-bg-dark);
+  color: theme('colors.white');
+  overflow-x: hidden;
+}
+
+/* Global class overrides for background gradients using Deep Blue */
+.bg-slate-950 {
+  background: linear-gradient(135deg, #020617 0%, #0B3D91 100%) !important;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  color: #FFFFFF;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass-panel {
+  background: var(--theme-bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+@keyframes marquee-half {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee-half {
+  animation: marquee-half 20s linear infinite;
+}
+
+.certificate-select {
+  color: #ffffff;
+  background-color: #020617;
+  color-scheme: dark;
+}
+
+.certificate-select option {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+}
+
+.certificate-select option:disabled {
+  color: #64748b !important;
+}

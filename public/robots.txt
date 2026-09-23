@@ -1,0 +1,90 @@
+# ============================================================
+# robots.txt — BAF Shaheen College Dhaka Business Club (BAFSDBC)
+# https://bafsdbc.vercel.app/robots.txt
+# Updated: 2026-05-24
+# ============================================================
+
+# --- General crawlers ---
+User-agent: *
+Disallow: /admin
+Disallow: /admin/
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /llms.txt
+
+# --- Google ---
+User-agent: Googlebot
+Disallow: /admin
+Disallow: /admin/
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# --- Bing / Microsoft ---
+User-agent: Bingbot
+Disallow: /admin
+Disallow: /admin/
+Allow: /
+
+# --- AI / LLM Crawlers (allow for citation readiness) ---
+User-agent: GPTBot
+Disallow: /admin
+Disallow: /admin/
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Disallow: /admin
+Allow: /
+
+User-agent: anthropic-ai
+Disallow: /admin
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /admin
+Allow: /
+
+User-agent: Claude-Web
+Disallow: /admin
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /admin
+Allow: /
+
+User-agent: Perplexity-User
+Disallow: /admin
+Allow: /
+
+User-agent: cohere-ai
+Disallow: /admin
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /admin
+Allow: /
+
+User-agent: Gemini
+Disallow: /admin
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /admin
+Allow: /
+
+User-agent: YouBot
+Disallow: /admin
+Allow: /
+
+# --- Sitemap ---
+Sitemap: https://bafsdbc.vercel.app/sitemap.xml

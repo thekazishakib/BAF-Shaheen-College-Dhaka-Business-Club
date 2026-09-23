@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="
+          http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+          http://www.google.com/schemas/sitemap-image/1.1
+          http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://bafsdbc.vercel.app/og-image.jpg</image:loc>
+      <image:title>BAF Shaheen College Dhaka Business Club — BAFSDBC</image:title>
+      <image:caption>Official banner of BAF Shaheen College Dhaka Business Club (BAFSDBC), est. 2015</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bafsdbc.vercel.app/BAFSDBC_Logo_BG_removed.png</image:loc>
+      <image:title>BAFSDBC Official Logo</image:title>
+      <image:caption>BAF Shaheen College Dhaka Business Club logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/about</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://bafsdbc.vercel.app/BAFSDBC_Logo_BG_removed.png</image:loc>
+      <image:title>About BAFSDBC — BAF Shaheen College Dhaka Business Club</image:title>
+      <image:caption>BAFSDBC established 2015, BAF Shaheen College Dhaka</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Events Page -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/events</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Team Page -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/team</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/gallery</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://bafsdbc.vercel.app/blogs</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!--
+    NOTE: Individual blog post URLs (/blogs/:slug) are dynamically generated
+    from Firebase Firestore. They are not listed here because slugs are runtime-
+    generated from post titles. These pages inject their own JSON-LD BlogPosting
+    schema and meta tags at runtime via BlogDetailPage.tsx.
+    To include blog posts in the sitemap, a build-time sitemap generator
+    (e.g. a Firestore-seeded sitemap script) would be needed.
+    TODO: Implement dynamic sitemap generation script for blog posts.
+  -->
+
+</urlset>

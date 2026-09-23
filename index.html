@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================ -->
+    <!-- Performance: DNS Prefetch & Preconnect                        -->
+    <!-- ============================================================ -->
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- ============================================================ -->
+    <!-- Favicons & PWA                                                -->
+    <!-- ============================================================ -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32"  href="/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="application-name" content="BAFSDBC" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="BAFSDBC" />
+
+    <!-- ============================================================ -->
+    <!-- Primary SEO Meta                                              -->
+    <!-- ============================================================ -->
+    <title>BAFSDBC | BAF Shaheen College Dhaka Business Club</title>
+    <meta name="description" content="BAF Shaheen College Dhaka Business Club (BAFSDBC), established 2015, is Bangladesh's premier student business organization developing future leaders through entrepreneurship, workshops, and competitions at BAF Shaheen College, Dhaka." />
+    <meta name="keywords" content="BAFSDBC, BAF Shaheen College Dhaka Business Club, BAFSD Business Club, student business club Bangladesh, Business Club Dhaka, BAF Shaheen College, youth leadership Bangladesh, entrepreneurship Bangladesh, student organization Dhaka, Business Leadership Club Dhaka, Future Business Leaders Bangladesh, BAF Shaheen College Dhaka Club" />
+    <meta name="author" content="Kazi Shakib" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#0B3D91" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="google-site-verification" content="google9e233c2e5dd0eb98" />
+    <link rel="canonical" href="https://bafsdbc.vercel.app/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ============================================================ -->
+    <!-- Language & Geo Targeting                                      -->
+    <!-- ============================================================ -->
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="BD-C" />
+    <meta name="geo.placename" content="Dhaka, Bangladesh" />
+    <link rel="alternate" hreflang="en" href="https://bafsdbc.vercel.app/" />
+    <link rel="alternate" hreflang="bn" href="https://bafsdbc.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://bafsdbc.vercel.app/" />
+
+    <!-- ============================================================ -->
+    <!-- Open Graph — Facebook / WhatsApp / LinkedIn                   -->
+    <!-- ============================================================ -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://bafsdbc.vercel.app/" />
+    <meta property="og:title"       content="BAFSDBC | BAF Shaheen College Dhaka Business Club" />
+    <meta property="og:description" content="BAFSDBC — BAF Shaheen College Dhaka Business Club, est. 2015. Empowering students through leadership, entrepreneurship, and professional development in Bangladesh." />
+    <meta property="og:image"       content="https://bafsdbc.vercel.app/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content="BAF Shaheen College Dhaka Business Club — BAFSDBC Official Banner" />
+    <meta property="og:image:type"   content="image/jpeg" />
+    <meta property="og:site_name"   content="BAF Shaheen College Dhaka Business Club" />
+    <meta property="og:locale"      content="en_US" />
+    <meta property="og:locale:alternate" content="bn_BD" />
+
+    <!-- ============================================================ -->
+    <!-- Twitter / X Card                                              -->
+    <!-- ============================================================ -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@bafsdbc" />
+    <meta name="twitter:creator"     content="@bafsdbc" />
+    <meta name="twitter:title"       content="BAFSDBC | BAF Shaheen College Dhaka Business Club" />
+    <meta name="twitter:description" content="BAFSDBC — BAF Shaheen College Dhaka Business Club, est. 2015. Empowering students through leadership, entrepreneurship, and professional development." />
+    <meta name="twitter:image"       content="https://bafsdbc.vercel.app/og-image.jpg" />
+    <meta name="twitter:image:alt"   content="BAF Shaheen College Dhaka Business Club — BAFSDBC Official Logo" />
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: Organization                                         -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://bafsdbc.vercel.app/#organization",
+      "name": "BAF Shaheen College Dhaka Business Club",
+      "alternateName": ["BAFSDBC", "BAFSD Business Club", "BAF Shaheen Dhaka Business Club"],
+      "url": "https://bafsdbc.vercel.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://bafsdbc.vercel.app/#logo",
+        "url": "https://bafsdbc.vercel.app/BAFSDBC_Logo_BG_removed.png",
+        "contentUrl": "https://bafsdbc.vercel.app/BAFSDBC_Logo_BG_removed.png",
+        "width": 512,
+        "height": 512,
+        "caption": "BAF Shaheen College Dhaka Business Club Official Logo"
+      },
+      "image": "https://bafsdbc.vercel.app/og-image.jpg",
+      "description": "BAF Shaheen College Dhaka Business Club (BAFSDBC), established in 2015, is the premier student-run business organization in Bangladesh. We develop future business leaders through leadership programs, entrepreneurship training, workshops, and business competitions at BAF Shaheen College, Dhaka.",
+      "foundingDate": "2015",
+      "email": "businessclub.bafsd@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Gate, Near Shaheed Jahangir Gate",
+        "addressLocality": "Dhaka",
+        "postalCode": "1206",
+        "addressCountry": "BD",
+        "addressRegion": "Dhaka Division"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "businessclub.bafsd@gmail.com",
+        "contactType": "customer support",
+        "areaServed": ["BD"],
+        "availableLanguage": ["English", "Bengali"]
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Bangladesh",
+        "containsPlace": [
+          { "@type": "City", "name": "Dhaka" },
+          { "@type": "City", "name": "Chittagong" }
+        ]
+      },
+      "sameAs": [
+        "https://www.facebook.com/bafsdbc",
+        "https://www.linkedin.com/company/baf-shaheen-college-dhaka-business-club/",
+        "https://www.instagram.com/bafsdbc.official",
+        "https://www.youtube.com/@bafshaheencollegedhakabusi8584"
+      ],
+      "knowsAbout": [
+        "Business Leadership",
+        "Entrepreneurship",
+        "Student Development",
+        "Corporate Skills",
+        "Business Competitions",
+        "Youth Leadership Bangladesh",
+        "Workshop Organization",
+        "Seminar Hosting"
+      ],
+      "memberOf": {
+        "@type": "EducationalOrganization",
+        "name": "BAF Shaheen College Dhaka",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "postalCode": "1206",
+          "addressCountry": "BD"
+        }
+      }
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: WebSite with SearchAction                            -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://bafsdbc.vercel.app/#website",
+      "name": "BAFSDBC",
+      "alternateName": ["BAF Shaheen College Dhaka Business Club", "BAFSD Business Club"],
+      "url": "https://bafsdbc.vercel.app/",
+      "inLanguage": ["en-US", "bn-BD"],
+      "description": "Official website of BAF Shaheen College Dhaka Business Club (BAFSDBC) — Est. 2015. Student leadership, entrepreneurship, and professional development in Bangladesh.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://bafsdbc.vercel.app/blogs?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://bafsdbc.vercel.app/#organization",
+        "name": "BAF Shaheen College Dhaka Business Club",
+        "url": "https://bafsdbc.vercel.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bafsdbc.vercel.app/BAFSDBC_Logo_BG_removed.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: WebPage (Homepage)                                   -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://bafsdbc.vercel.app/#webpage",
+      "url": "https://bafsdbc.vercel.app/",
+      "name": "BAF Shaheen College Dhaka Business Club | Official Website — BAFSDBC",
+      "description": "BAF Shaheen College Dhaka Business Club (BAFSDBC), established 2015, is Bangladesh's premier student business organization developing future leaders through entrepreneurship, workshops, and competitions.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://bafsdbc.vercel.app/#website" },
+      "about": { "@id": "https://bafsdbc.vercel.app/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://bafsdbc.vercel.app/"
+          }
+        ]
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://bafsdbc.vercel.app/og-image.jpg"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".speakable"]
+      }
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: SiteNavigationElement (Sitelinks signal)             -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "BAF Shaheen College Dhaka Business Club — Site Navigation",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Home",
+          "description": "Welcome to BAFSDBC — BAF Shaheen College Dhaka Business Club. Empowering students since 2015.",
+          "url": "https://bafsdbc.vercel.app/"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "About BAFSDBC",
+          "description": "Learn about our mission, vision, and history. BAFSDBC bridges academic excellence and corporate readiness since 2015.",
+          "url": "https://bafsdbc.vercel.app/about"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Executive Team",
+          "description": "Meet the student leaders and faculty advisors of BAF Shaheen College Dhaka Business Club.",
+          "url": "https://bafsdbc.vercel.app/team"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Events & Workshops",
+          "description": "Explore workshops, seminars, business competitions, and leadership events organized by BAFSDBC.",
+          "url": "https://bafsdbc.vercel.app/events"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Gallery",
+          "description": "Photo gallery of BAFSDBC events, activities, workshops, and student achievements.",
+          "url": "https://bafsdbc.vercel.app/gallery"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Business Insights Blog",
+          "description": "Articles, insights, and student perspectives on business, leadership, and entrepreneurship from BAFSDBC members.",
+          "url": "https://bafsdbc.vercel.app/blogs"
+        }
+      ]
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: EducationalOrganization (Parent Institution)         -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "@id": "https://bafsdbc.vercel.app/#parent-institution",
+      "name": "BAF Shaheen College Dhaka",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Gate, Near Shaheed Jahangir Gate",
+        "addressLocality": "Dhaka",
+        "postalCode": "1206",
+        "addressCountry": "BD"
+      },
+      "department": {
+        "@id": "https://bafsdbc.vercel.app/#organization"
+      }
+    }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- JSON-LD: Person (Developer)                                   -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://bafsdbc.vercel.app/#developer",
+      "name": "Kazi Shakib",
+      "url": "https://kazishakib.vercel.app",
+      "sameAs": [
+        "https://www.linkedin.com/in/kazishakib/",
+        "https://kazishakib.vercel.app"
+      ],
+      "jobTitle": "Web Developer & SEO Engineer",
+      "worksFor": {
+        "@id": "https://bafsdbc.vercel.app/#organization"
+      },
+      "knowsAbout": ["Web Development", "SEO", "React", "TypeScript", "Firebase", "Vite"],
+      "description": "Kazi Shakib is the developer and SEO engineer of the BAF Shaheen College Dhaka Business Club (BAFSDBC) official website."
+    }
+    </script>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
