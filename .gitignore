@@ -1,0 +1,76 @@
+# ─── Dependencies ────────────────────────────────────────────────────────────
+node_modules/
+
+# ─── Production Output ────────────────────────────────────────────────────────
+dist/
+dist-ssr/
+build/
+.output/
+coverage/
+.nyc_output/
+*.lcov
+.cache/
+.parcel-cache/
+.vite/
+
+# ─── Local Vercel Files ───────────────────────────────────────────────────────
+.vercel/
+.vercel
+
+# ─── Environment / Secrets ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+firebase-debug.log*
+
+# ─── Credentials and Private Keys ─────────────────────────────────────────────
+credentials.json
+gcloud-credentials.json
+service-account.json
+service-account-*.json
+service-account*.json
+*-service-account.json
+*serviceAccount*.json
+firebase-adminsdk-*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ─── Temporary and Backup Files ───────────────────────────────────────────────
+scratch/
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bak
+*.tmp
+*.temp
+Pasted text*
+Pasted markdown*
+
+# ─── Editor / OS Junk ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
