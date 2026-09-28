@@ -23,14 +23,9 @@ async function deleteStorageFile(url: string) {
   }
 }
 
-// ── Client-side email whitelist (defense-in-depth) ────────────────────────
-// এই list-টি শুধু fast-fail-এর জন্য। আসল security Firestore Rules-এ আছে।
-// নতুন admin যোগ করতে এখানে এবং firestore.rules-এর isAdmin()-এ দুই জায়গাতেই যোগ করতে হবে।
-const ADMIN_EMAILS: string[] = [
-  'businessclub.bafsd@gmail.com',
-  'alamsharifulshourav@gmail.com',
-];
-// ──────────────────────────────────────────────────────────────────────────
+// Admin access is decided only by Firestore Security Rules (isAdmin() in
+// firestore.rules). The client keeps no email list.
+// To add a new admin, edit isAdmin() in firestore.rules and storage.rules.
 
 // Verify admin by trying to read a Rules-protected document.
 // firestore.rules-এ adminVerify-তে শুধু isAdmin() email-ই read করতে পারবে।
@@ -96,15 +91,7 @@ export default function AdminPage() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser && currentUser.email) {
-        // Step 1: client-side whitelist check (fast-fail, no Firestore call needed)
-        if (!ADMIN_EMAILS.includes(currentUser.email)) {
-          await signOut(auth);
-          setUser(null);
-          setIsAuthenticated(false);
-          setIsCheckingAuth(false);
-          return;
-        }
-        // Step 2: server-side Firestore Rules check (cannot be bypassed client-side)
+        // Server-side Firestore Rules check (cannot be bypassed client-side)
         const allowed = await verifyAdminViaRules();
         if (allowed) {
           setUser(currentUser);
@@ -129,13 +116,7 @@ export default function AdminPage() {
     try {
       const result = await signInWithPopup(auth, provider);
       if (result.user.email) {
-        // Step 1: client-side whitelist check
-        if (!ADMIN_EMAILS.includes(result.user.email)) {
-          await signOut(auth);
-          console.warn('[Admin] Login rejected (email not in whitelist):', result.user.email);
-          return;
-        }
-        // Step 2: server-side Firestore Rules check
+        // Server-side Firestore Rules check
         const allowed = await verifyAdminViaRules();
         if (!allowed) {
           await signOut(auth);
