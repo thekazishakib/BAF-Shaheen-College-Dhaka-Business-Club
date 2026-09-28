@@ -1,5 +1,8 @@
-  // PLACEHOLDER EMAILS. DO NOT DEPLOY THIS FILE AS-IS.
-  // Real admin emails live only in the Firebase console.
+
+
+// PLACEHOLDER EMAILS. DO NOT DEPLOY THIS FILE AS-IS.
+
+// Real admin emails live only in the Firebase console.
 
 rules_version = '2';
 service cloud.firestore {
