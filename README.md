@@ -14,35 +14,35 @@
 
 ## Project Overview
 
-This is the official website for the **BAF Shaheen College Dhaka Business Club (BAFSDBC)**, established in 2015. The website acts as a public information portal for students, sponsors, and partners, while also containing administrative tools for dynamic content management and a automated e-certificate delivery system.
+This is the official website for the **BAF Shaheen College Dhaka Business Club (BAFSDBC)**, established in 2015. The website acts as a public information portal for students, sponsors, and partners. It also contains an admin dashboard for managing content and an automated e-certificate delivery system.
 
-The application is structured as a single-page application (SPA) with a responsive user interface, featuring dynamic Firebase-backed sections (events, blogs, team listings, gallery, and testimonials), a secure admin content management dashboard, and a serverless certificate proxy backend.
+The application is a single-page application (SPA) with a responsive interface, dynamic Firebase-backed sections (events, blogs, team listings, gallery, testimonials), a secure admin content dashboard, and a serverless certificate proxy backend.
 
 ---
 
 ## Main Features
 
-- **Responsive Homepage**: Modern landing page with interactive elements, featuring the club's intro, leadership committee, sponsors carousel, student testimonials, and dynamic FAQ lists.
-- **About Page**: Describes the history, vision, and core mission of the club, integrated with a dynamic "Startup Roadmap" component.
-- **Events Listing**: Renders active, upcoming, and archived club events, workshops, and business seminars dynamically from Firestore.
-- **Team / Executive Committee Page**: Grid layout showcasing the club's executive committee, directors, and members.
-- **Gallery Page**: Displays snapshots and key moments from previous events and club programs.
-- **Blogs Listing & Detail Pages**: Knowledge hub showcasing student business articles and club announcements, with a dedicated content reader page at `/blogs/:slug`.
-- **Privacy & Terms Pages**: Complete disclosures to support standard privacy policy compliance.
-- **Admin Page**: Gated content management dashboard allowing authenticated administrators to create, update, and delete dynamic entries across website sections.
-- **Firebase-Backed Dynamic Content**: All core website text blocks, carousels, lists, and pages sync instantly with Cloud Firestore.
-- **Firebase Storage Image Handling**: Handles administrative image uploads (event cards, blog covers, sponsor logos) with size limits (5 MB cap), client/server MIME-type validation, and client-side canvas-based EXIF data stripping.
-- **Responsive Navbar & Mobile Menu**: Floating, responsive navbar that automatically collapses on mobile viewports with an adaptive hamburger menu.
-- **Navbar Scroll Animation**: Smooth visual transition where the navbar changes its padding, background opacity, and border-radius dynamically as the user scrolls.
-- **Initial Polished Site Loader**: High-end multi-stage entry animation displaying loading words ("SYSTEM INITIATED", "SYNERGIZING DATA", etc.) followed by a gradient text-fill transition before sliding out of view.
-- **Internal Route-Level Skeleton Loading**: React lazy-loaded pages fallback to a centralized `RouteSkeleton` layout container during navigation, keeping the Navbar mounted and independent.
-- **Local Content Skeletons**: Individual data-driven components (like event grids and blog cards) display local placeholder skeletons while fetching database resources.
-- **Reduced-Motion Support**: Respects system accessibility preferences by disabling or simplifying Framer Motion and Tailwind animations.
-- **Certificate Submission Form**: Dedicated frontend form for participants to submit their credentials to receive official participation e-certificates.
-- **Server-Side Certificate Validation**: Sanitizes and validates inputs (such as validating name lengths and ensuring correct Bangladesh mobile number formats) on the server.
-- **Duplicate Protection**: Prevents multiple certificate issuances by checking manual `Email` and `Phone number` records in the sheet prior to processing.
-- **Global 60-Second Cooldown**: Locks submissions globally for 60 seconds after a successful request to prevent server overloads and race conditions, enforced both client-side and server-side.
-- **Automated Certificate Delivery**: Integrates serverless APIs and Google Apps Script to write details to a Google Sheet, triggering AutoCrat to generate PDF certificates and email them directly to participants.
+- **Responsive Homepage**: Landing page with the club intro, leadership committee, sponsors carousel, student testimonials, and dynamic FAQ lists.
+- **About Page**: History, vision, and core mission of the club, with a dynamic "Startup Roadmap" component.
+- **Events Listing**: Active, upcoming, and archived events, workshops, and business seminars, loaded from Firestore.
+- **Team / Executive Committee Page**: Grid layout of the executive committee, directors, and members.
+- **Gallery Page**: Snapshots and key moments from previous events and club programs.
+- **Blogs Listing & Detail Pages**: Knowledge hub with student business articles and club announcements, with a reader page at `/blogs/:slug`.
+- **Privacy & Terms Pages**: Privacy policy and terms of use for the website.
+- **Admin Page**: Gated dashboard where authenticated administrators create, update, and delete entries across website sections.
+- **Firebase-Backed Dynamic Content**: Core text blocks, carousels, lists, and pages are read from Cloud Firestore.
+- **Admin Image Handling**: Images chosen in the admin panel are validated (JPEG, PNG, WebP, GIF only, 5 MB input limit), redrawn through a canvas to strip EXIF metadata, resized to at most 1200 px, and saved as WebP. The result is stored as a base64 data URL inside the Firestore document (see [Image Storage](#image-storage)).
+- **Responsive Navbar & Mobile Menu**: Floating navbar that collapses into a hamburger menu on mobile.
+- **Navbar Scroll Animation**: Padding, background opacity, and border-radius change smoothly as the user scrolls.
+- **Initial Site Loader**: Multi-stage entry animation ("SYSTEM INITIATED", "SYNERGIZING DATA", etc.) followed by a gradient text-fill transition before sliding out.
+- **Route-Level Skeleton Loading**: Lazy-loaded pages fall back to a shared `RouteSkeleton` while the Navbar stays mounted.
+- **Local Content Skeletons**: Data-driven components (event grids, blog cards) show placeholder skeletons while fetching.
+- **Reduced-Motion Support**: Respects system accessibility settings by disabling or simplifying animations.
+- **Certificate Submission Form**: Frontend form for participants to request an official participation e-certificate.
+- **Server-Side Certificate Validation**: Validates name length and Bangladesh mobile number format on the server.
+- **Duplicate Protection**: Checks the manual `Email` and `Phone number` columns in the sheet before processing.
+- **Global 60-Second Cooldown**: After a successful request, submissions are locked globally for 60 seconds to prevent overload and race conditions, enforced on both client and server.
+- **Automated Certificate Delivery**: Vercel serverless APIs and Google Apps Script write details to a Google Sheet, which triggers AutoCrat to generate a PDF certificate and email it to the participant.
 
 ---
 
@@ -50,11 +50,11 @@ The application is structured as a single-page application (SPA) with a responsi
 
 - **Frontend Core**: [React](https://react.dev) (v19) & [TypeScript](https://www.typescriptlang.org)
 - **Build Tool**: [Vite](https://vite.dev) (v6)
-- **Styling**: Vanilla CSS, [Tailwind CSS v4](https://tailwindcss.com) (utility engine via `@tailwindcss/vite`)
-- **Animations**: [Framer Motion](https://motion.dev) (v12)
-- **Database & Asset Storage**: [Firebase Firestore](https://firebase.google.com/docs/firestore) & [Firebase Storage](https://firebase.google.com/docs/storage)
+- **Styling**: Vanilla CSS and [Tailwind CSS v4](https://tailwindcss.com) (via `@tailwindcss/vite`)
+- **Animations**: [Motion](https://motion.dev) (v12, formerly Framer Motion)
+- **Database**: [Firebase Firestore](https://firebase.google.com/docs/firestore)
 - **Admin Identity Provider**: [Firebase Authentication](https://firebase.google.com/docs/auth) via Google OAuth
-- **Hosting & Serverless Edge**: [Vercel](https://vercel.com) & Vercel Serverless Functions (`api/` endpoints)
+- **Hosting & Serverless**: [Vercel](https://vercel.com) and Vercel Serverless Functions (`api/` endpoints)
 - **Automation Bridge**: [Google Apps Script](https://developers.google.com/apps-script)
 - **Data Capture & PDF Generation**: [Google Forms](https://www.google.com/forms/about), [Google Sheets](https://www.google.com/sheets/about), and [AutoCrat](https://workspace.google.com/marketplace/app/autocrat/539341275670)
 - **Email Contact Form**: [Web3Forms API](https://web3forms.com)
@@ -63,58 +63,67 @@ The application is structured as a single-page application (SPA) with a responsi
 
 ## Website Routes
 
-Based on the React Router configuration, the following routes are defined:
-
 | URL Path | Page / Purpose | Data-Driven / Dynamic |
 | :--- | :--- | :--- |
-| `/` | **Home**: Landing page with hero details, incharges, reviews, and FAQs | Yes (Firestore) |
-| `/about` | **About Us**: Club history, mission values, and the Startup Roadmap | Yes (Firestore) |
-| `/events` | **Events**: Active and archived workshops, seminars, and registries | Yes (Firestore) |
-| `/team` | **Executive Committee**: Grid of the club's board, directors, and members | Yes (Firestore) |
-| `/gallery` | **Gallery**: Snapshot collections of previous club activities | Yes (Firestore) |
-| `/blogs` | **Blogs**: Overview of business articles and announcements | Yes (Firestore) |
-| `/blogs/:slug` | **Blog Detail**: Full blog post renderer queried by slug | Yes (Firestore) |
-| `/certificate` | **e-Certificate Request**: Form submission for official certificates | Yes (Vercel API) |
-| `/privacy` | **Privacy Policy**: GDPR & standard privacy disclosures | Static |
-| `/terms` | **Terms & Conditions**: Website terms of service | Static |
-| `/admin` | **Admin Dashboard**: Gated CMS panel to manage Firestore collections | Yes (Firestore Auth) |
+| `/` | **Home**: Hero, incharges, reviews, and FAQs | Yes (Firestore) |
+| `/about` | **About Us**: Club history, mission, and Startup Roadmap | Yes (Firestore) |
+| `/events` | **Events**: Active and archived workshops, seminars, and registrations | Yes (Firestore) |
+| `/team` | **Executive Committee**: Board, directors, and members | Yes (Firestore) |
+| `/gallery` | **Gallery**: Photos from previous club activities | Yes (Firestore) |
+| `/blogs` | **Blogs**: Business articles and announcements | Yes (Firestore) |
+| `/blogs/:slug` | **Blog Detail**: Full blog post, queried by slug | Yes (Firestore) |
+| `/certificate` | **e-Certificate Request**: Form for official certificates | Yes (Vercel API) |
+| `/privacy` | **Privacy Policy** | Static |
+| `/terms` | **Terms & Conditions** | Static |
+| `/admin` | **Admin Dashboard**: Gated CMS to manage Firestore collections | Yes (Firestore + Auth) |
 
 ---
 
 ## Loading Behavior
 
-The application utilizes a multi-layered loading experience:
-1. **Initial Site Loader**: Triggered only upon initially loading the website. Runs a multi-stage word transition followed by a gradient text-fill transition before sliding out of view.
-2. **Route-Level Code Splitting**: All page components use lazy imports. During routing transitions, the screen falls back to a global `RouteSkeleton` block containing mock visual outlines.
-3. **Mounted Navbar**: The floating navigation bar remains mounted, active, and fully interactive while route skeletons swap underneath.
-4. **Independent Scroll Animations**: Scroll-based navbar modifications run independently of route transitions or skeleton loading states.
-5. **Local Content Skeletons**: Inside dynamic pages (such as `/events` or `/blogs`), local skeleton cards are rendered while querying the Firestore collections.
-6. **Certificate Page Availability Check**: Uses an inline status loader (`isCheckingStatus` animation block) while checking the global 60-second cooldown status from the server, preventing fields from rendering until availability is confirmed.
-7. **Reduced Motion**: Respects accessibility preferences. If system-level reduced motion is active, Framer Motion transitions fall back to instant changes or simple opacity fades.
+1. **Initial Site Loader**: Runs once when the website first loads: a multi-stage word transition, then a gradient text-fill, then a slide-out.
+2. **Route-Level Code Splitting**: All pages use lazy imports. During navigation the screen falls back to a global `RouteSkeleton`.
+3. **Mounted Navbar**: The navbar stays mounted and interactive while route skeletons swap underneath.
+4. **Independent Scroll Animations**: Scroll-based navbar changes run independently of route transitions.
+5. **Local Content Skeletons**: Dynamic pages (such as `/events` and `/blogs`) render skeleton cards while querying Firestore.
+6. **Certificate Availability Check**: The certificate page shows an inline loader (`isCheckingStatus`) while checking the global cooldown status, and does not render the fields until availability is confirmed.
+7. **Reduced Motion**: With system-level reduced motion on, transitions fall back to instant changes or simple opacity fades.
 
 ---
 
 ## Firebase Usage
 
-Firebase functions entirely as a secure server-side data hub for the application:
-- **Firestore Database**: Backs all dynamic sections of the website. It contains collections for:
+- **Firestore Database** backs all dynamic sections. Collections:
   - `events`: Active and archived events
-  - `blogs`: Written insights and articles
+  - `blogs`: Articles and insights
   - `team`: Executive committee listings
-  - `gallery`: Visual assets shown in the gallery grid
+  - `gallery`: Images and captions for the gallery grid
   - `testimonials`: Student and alumni reviews
-  - `sponsors`: Active corporate partners
-  - `faqs`: Common question listings
-  - `singleton`: Structured CTA and home text configs
-  - `adminVerify`: Document ID `token` used to verify administrative privileges
-- **Firebase Storage**: Stores uploaded event banners, sponsor logos, and blog covers under `/images/` path.
-- **Firebase Authentication**: Uses Google OAuth to authenticate users, returning signed ID tokens which are verified against Firestore and Storage security rules.
+  - `sponsors`: Corporate partners
+  - `incharges`: Club incharges
+  - `heroImages`: Homepage hero slider images
+  - `faqs`: Common questions
+  - `singleton`: CTA and other single-document configs
+  - `certificates`: Certificate records (read only by admins)
+  - `adminVerify`: Document ID `token`, used to check administrative privileges
+- **Firebase Authentication** uses Google OAuth. Signed ID tokens are checked against Firestore security rules.
+- **Firebase Storage** is not used by the admin panel at the moment. `storage.rules` is kept so the bucket stays locked down (public read of `images/`, admin-only write) if Storage is used later.
+
+### Image Storage
+
+Images are **not** uploaded to Firebase Storage. `ImageUpload` compresses each image in the browser and the admin panel saves the resulting base64 data URL in a field (`image`, `logo`, or `url`) of the Firestore document.
+
+What this means in practice:
+
+- A Firestore document can be at most **1 MiB**, so the admin form rejects any image string longer than **900,000 characters**. Plain text fields keep their own, smaller limits (for example 2,048 characters for a link).
+- Every image is downloaded together with its document. Large galleries load slower than they would with Storage URLs.
+- If you outgrow this, move uploads to Firebase Storage and save only the download URL in Firestore. `storage.rules` already allows admin writes to `images/`, but `firebase.json` would also need a `storage` entry.
 
 ---
 
 ## Certificate Pipeline
 
-The certificate submission pipeline processes certificate details securely via a serverless proxy gateway:
+Certificate details go through a serverless proxy:
 
 ```
 [Website Certificate Form]
@@ -138,20 +147,23 @@ The certificate submission pipeline processes certificate details securely via a
 [AutoCrat PDF Generation & Email Dispatch]
 ```
 
-### Key Security & Integration Rules:
-- **Proxy Layer**: Frontend code never submits requests directly to the Google Apps Script Web App. It communicates with Vercel API endpoints (`/api/certificate/status` and `/api/certificate/submit`), which proxy the request using secure Vercel environment variables.
-- **Duplicate Prevention**: Duplicate checks query the connected sheet using the manually entered `Email` and `Phone number` columns. The auto-generated `Email address` and `Score` columns (created by default form layouts) are ignored.
-- **Global Cooldown**: Successful submissions trigger a 60-second cooldown block, locking the endpoint globally via script properties in Google Apps Script and verifying availability during status queries.
-- **Script Lock**: The Apps Script backend executes `LockService.getScriptLock()` to lock database operations during execution, preventing race conditions or double-submissions.
-- **Batch Range Check**: Only allows submissions for batches matching `HSC-2014` through `HSC-2050`.
-- **Form Configuration**: Google Form settings must have the manual `Email` field required, account-based email collection disabled (to prevent authentication gates), and "Limit to 1 response" disabled.
-- **AutoCrat Integration**: Row insertion triggers the AutoCrat add-on to map columns to a Google Slides template, generate the certificate PDF, and email it to the user.
+### Key Security & Integration Rules
+
+- **Proxy Layer**: Frontend code never calls the Google Apps Script Web App directly. It talks to `/api/certificate/status` and `/api/certificate/submit`, which forward the request using server-side Vercel environment variables.
+- **Duplicate Prevention**: Checks use the manually entered `Email` and `Phone number` columns. The auto-generated `Email address` and `Score` columns from default form layouts are ignored.
+- **Global Cooldown**: A successful submission starts a 60-second lock, stored in Apps Script properties and checked on status queries.
+- **Script Lock**: The Apps Script backend uses `LockService.getScriptLock()` during execution to prevent race conditions and double submissions.
+- **Batch Range Check**: Only batches `HSC-2014` through `HSC-2050` are accepted.
+- **Form Configuration**: In the Google Form, the manual `Email` field must be required, account-based email collection must be off, and "Limit to 1 response" must be off.
+- **AutoCrat Integration**: Row insertion triggers AutoCrat to fill a Google Slides template, generate the PDF, and email it to the participant.
+
+See [`google-apps-script/SETUP.md`](google-apps-script/SETUP.md) for the full Apps Script setup.
 
 ---
 
 ## Environment Variables
 
-The project requires the following environment variables. Place them in your `.env` file for local development or within the Vercel/Firebase dashboard settings:
+Put these in a local `.env` file for development, or in the Vercel dashboard for deployment. Never commit `.env`.
 
 ```env
 # ─── Firebase Client Config (VITE_ prefix = intentionally public) ─────────────
@@ -165,11 +177,13 @@ VITE_FIREBASE_APP_ID=1:000000000000:web:xxxxxxxxxxxxxxxxxxxxxxxx
 # ─── Web3Forms (contact form submissions) ────────────────────────────────────
 VITE_WEB3FORMS_API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-# ─── Server-only Certificate Integration (No VITE_ prefix to keep secure) ──────
+# ─── Server-only Certificate Integration (no VITE_ prefix, keeps it private) ──
 CERTIFICATE_APPS_SCRIPT_URL=https://script.google.com/macros/s/AKfycb.../exec
 CERTIFICATE_SHARED_SECRET=your_strong_shared_secret_here
 CERTIFICATE_ALLOWED_ORIGIN=https://bafsdbc.vercel.app
 ```
+
+Any variable starting with `VITE_` is compiled into the public JavaScript bundle. The Firebase web config is designed to be public, so restrict the API key to your site's domain in Google Cloud Console (APIs & Services → Credentials → HTTP referrers). Keep real secrets, such as `CERTIFICATE_SHARED_SECRET`, without the `VITE_` prefix.
 
 ---
 
@@ -190,7 +204,7 @@ npm install
 ```bash
 cp .env.example .env
 ```
-Fill in your values in `.env` — refer to `.env.example` for all required keys.
+Fill in your values in `.env`. `.env.example` lists every required key.
 
 ### 4. Run locally
 ```bash
@@ -206,15 +220,15 @@ npm run build
 
 ## Deployment
 
-Hosted on **Vercel**. Steps to deploy:
+The site is hosted on **Vercel**.
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) → **New Project** → Import your repository
-3. Set **Framework Preset** to `Vite`
-4. Add all environment variables from `.env` in **Settings → Environment Variables**
-5. Click **Deploy**
+1. Push your code to GitHub.
+2. Go to [vercel.com](https://vercel.com), choose **New Project**, and import the repository.
+3. Set **Framework Preset** to `Vite`.
+4. Add every variable from `.env` under **Settings → Environment Variables**.
+5. Click **Deploy**.
 
-> `vercel.json` is already configured for SPA routing and security headers (HSTS, CSP, X-Frame-Options, etc.).
+`vercel.json` already contains SPA routing and security headers (HSTS, CSP, X-Frame-Options, and more).
 
 ---
 
@@ -222,59 +236,58 @@ Hosted on **Vercel**. Steps to deploy:
 
 ### Firestore
 
-1. Go to [Firebase Console](https://console.firebase.google.com) → create a project
-2. Enable **Firestore Database** (Production mode)
-3. Copy your config keys into `.env`
-4. Deploy rules via Firebase CLI:
-```bash
-firebase deploy --only firestore:rules
-```
-
-### Storage
-
-5. Enable **Firebase Storage** (requires Blaze plan)
-6. Deploy rules via Firebase CLI:
-```bash
-firebase deploy --only storage
-```
+1. Open the [Firebase Console](https://console.firebase.google.com) and create a project.
+2. Enable **Firestore Database** in production mode.
+3. Copy your config keys into `.env`.
+4. Prepare and deploy the rules as described under [Admin Panel](#admin-panel). Do not deploy `firestore.rules` before replacing the placeholder emails.
 
 ### Authentication
 
-7. Enable **Google** as a sign-in provider under **Authentication → Sign-in method**
+5. Under **Authentication → Sign-in method**, enable **Google**.
+6. Under **Authentication → Settings → Authorized domains**, add your Vercel domain.
 
 ### adminVerify Document
 
-8. In Firestore Console → create collection `adminVerify` → document ID `token` → field `exists: true`
+7. In the Firestore Console, create the collection `adminVerify`, with document ID `token` and a field `exists: true`.
 
-> This document must exist for the admin authorization check to work.
+This document must exist, otherwise the admin authorization check fails.
+
+### Storage (optional, not used by the admin panel today)
+
+8. Only needed if you move image uploads to Firebase Storage. It requires the Blaze plan, and `firebase.json` needs a `storage` entry pointing at `storage.rules`.
 
 ---
 
 ## Admin Panel
 
-The admin panel is protected by a **two-layer server-side system**:
+Access to `/admin` is protected by two server-side layers:
 
-1. **Google OAuth** — identity confirmed by Google's servers
-2. **Firestore Security Rules** — `isAdmin()` runs on Firebase's servers, checks email allowlist + `email_verified == true`
-
-**To authorize an admin account:**
-
-1. Open `firestore.rules` and `storage.rules`
-2. Add the Google account email to the `isAdmin()` function's email list in both files. The rules in this repository use placeholder addresses (`admin1@gmail.com`, `admin2@gmail.com`): replace them with the real admin emails before running `firebase deploy`, otherwise admins will be locked out
-3. Deploy both rule sets:
-```bash
-firebase deploy --only firestore:rules,storage:rules
-```
+1. **Google OAuth**: identity is confirmed by Google's servers.
+2. **Firestore Security Rules**: `isAdmin()` runs on Firebase's servers and checks an email allowlist plus `email_verified == true`.
 
 **How authorization works:**
 
-- The user signs in with Google → Firebase issues a signed ID token
-- The client calls `getDoc(adminVerify/token)` — a Rules-protected document
-- Firebase's servers evaluate `isAdmin()` (email in allowlist + `email_verified == true`)
-- If denied → the client signs out immediately; access is refused
-- The client never makes the authorization decision
+- The user signs in with Google and Firebase issues a signed ID token.
+- The client reads `adminVerify/token`, a document protected by the rules.
+- Firebase evaluates `isAdmin()` on its servers.
+- If the read is denied, the client signs the user out immediately.
+- The client never makes the authorization decision itself.
 
-> Never add `VITE_ADMIN_*` variables or compare emails client-side. Any `VITE_*` variable is compiled into the public JS bundle and visible to anyone in DevTools. Admin security is enforced entirely server-side.
+**To authorize an admin account:**
+
+The rules in this repository use **placeholder** addresses (`admin1@gmail.com`, `admin2@gmail.com`). Those may belong to real people, and deploying them would lock out your actual admins.
+
+1. Edit `isAdmin()` in `firestore.rules` (and in `storage.rules`, if you use Storage) and put in the real admin emails.
+2. Publish the rules. The safest way is to paste them into **Firebase Console → Firestore → Rules → Publish**. If you use the CLI instead, run:
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+3. Discard the local change so real emails never reach the public repository:
+   ```bash
+   git checkout firestore.rules storage.rules
+   ```
+
+**Never commit real admin emails to this repository.** Also do not add `VITE_ADMIN_*` variables or compare emails on the client, because everything with a `VITE_` prefix ends up in the public JavaScript bundle.
 
 ---
 
@@ -285,45 +298,46 @@ Browser (React SPA)
 │
 │  Google OAuth popup → Firebase Auth → Signed ID Token (1h expiry)
 │
-│  Every Firestore/Storage request carries this token automatically
+│  Every Firestore request carries this token automatically
 │
 ▼
-Firebase Servers (Firestore Rules / Storage Rules)
+Firebase Servers (Firestore Rules)
 │
 │  isAdmin() checks:
 │    ✅ request.auth != null
 │    ✅ email_verified == true
-│    ✅ email in the allowlist inside the rules
+│    ✅ email is in the allowlist inside the rules
 │
-│  All authorization decisions are made here — never in the client
+│  Authorization decisions are made here, never in the client
 │
 ▼
-Data / Storage
+Data
 ```
 
 **Security controls in place:**
 
 | Control | Implementation |
 |---|---|
-| Authentication | Google OAuth — no passwords stored |
+| Authentication | Google OAuth, no passwords stored |
 | Session expiry | Firebase ID tokens expire after 1 hour |
-| Email verification | `email_verified == true` enforced in Firestore/Storage Rules |
-| Admin authorization | Server-side Firestore Rules `isAdmin()` — client never decides |
-| Admin login rate limiting | Max 5 attempts per 15 min (client-side localStorage) |
-| IDOR prevention | Certificate `downloaded` field update gated by `resource.data.email == request.auth.token.email` |
-| File upload safety | Client: MIME allowlist + 5 MB gate + canvas EXIF strip; Server: Storage Rules mirror checks |
-| Input validation | Contact form: length limits, regex, subject allowlist, HTML escaping, honeypot |
+| Email verification | `email_verified == true` enforced in the rules |
+| Admin authorization | Server-side `isAdmin()` in Firestore Rules; the client never decides |
+| Admin login throttling | Max 5 attempts per 15 min, kept in `localStorage`. This only slows popup spam and can be reset by the user; real protection is the rules |
+| IDOR prevention | Updating the certificate `downloaded` field requires `resource.data.email == request.auth.token.email` |
+| Image upload safety | Client-side MIME allowlist, 5 MB input limit, canvas re-encode that strips EXIF, and a 900,000-character cap before writing to Firestore |
+| Input validation | Contact form: length limits, regex, subject allowlist, HTML escaping, honeypot field |
 | Admin form validation | Field length limits enforced before Firestore writes |
-| Rate limiting | Contact form: 3 submissions / 10 min; Firebase Auth: built-in brute-force protection |
-| Secrets in frontend | Only intentionally-public Firebase config; no API keys for paid services |
-| HTTPS | Vercel enforces HTTPS; HSTS header (`max-age=63072000; includeSubDomains; preload`) |
+| Contact form rate limiting | 3 submissions per 10 min, kept in `localStorage` (client-side only) |
+| Secrets in frontend | Only the intentionally public Firebase config and Web3Forms key; certificate secrets stay server-side |
+| HTTPS | Enforced by Vercel; HSTS header (`max-age=63072000; includeSubDomains; preload`) |
 | Clickjacking | `X-Frame-Options: DENY` |
 | MIME sniffing | `X-Content-Type-Options: nosniff` |
-| Content Security Policy | `script-src` without `unsafe-inline`; `object-src 'none'` |
-| Admin route protection | `X-Robots-Tag: noindex`; `Cache-Control: no-store` at server level |
-| Error leakage | Raw Firestore errors go to `console.error` only — never surfaced to users |
-| Dependency surface | 0 vulnerabilities (`npm audit`); only production-necessary packages |
+| Content Security Policy | `script-src` without `unsafe-inline`; `object-src 'none'`; `base-uri 'self'` |
+| Admin route protection | `X-Robots-Tag: noindex` and `Cache-Control: no-store` at server level |
+| Error leakage | Raw Firestore errors go to `console.error` only and are not shown to users |
 | Git hygiene | `.gitignore` excludes all `.env` variants and Firebase service-account JSON files |
+
+Run `npm audit` before each release to check dependencies.
 
 ---
 
@@ -332,23 +346,26 @@ Data / Storage
 ```
 src/
 ├── components/       # Reusable UI components
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
 │   ├── About.tsx
-│   ├── ClubIncharge.tsx
-│   ├── Leadership.tsx
-│   ├── Events.tsx
-│   ├── Gallery.tsx
+│   ├── Administration.tsx
 │   ├── BlogSlider.tsx
-│   ├── TestimonialSlider.tsx
-│   ├── StartupRoadmap.tsx
-│   ├── Sponsors.tsx
-│   ├── Reviews.tsx
-│   ├── FAQ.tsx
+│   ├── ClubIncharge.tsx
 │   ├── ContactModal.tsx
+│   ├── ContactModalContext.tsx
+│   ├── Counter.tsx
+│   ├── Events.tsx
+│   ├── FAQ.tsx
 │   ├── Footer.tsx
+│   ├── Gallery.tsx
+│   ├── Hero.tsx
 │   ├── ImageUpload.tsx
-│   └── Loader.tsx
+│   ├── Leadership.tsx
+│   ├── Loader.tsx
+│   ├── Navbar.tsx
+│   ├── RouteSkeleton.tsx
+│   ├── Sponsors.tsx
+│   ├── StartupRoadmap.tsx
+│   └── TestimonialSlider.tsx
 ├── pages/            # Page-level components
 │   ├── Home.tsx
 │   ├── AboutPage.tsx
@@ -361,22 +378,25 @@ src/
 │   ├── TermsPage.tsx
 │   ├── CertificatePage.tsx
 │   └── AdminPage.tsx
-├── lib/              # Firebase client & utilities
+├── lib/              # Firebase client and utilities
 │   ├── firebase.ts
-│   └── firebaseUtils.ts
-├── assets/           # Logo & images
-└── App.tsx           # Root component & routing
+│   ├── firebaseUtils.ts
+│   ├── renderExcerpt.tsx
+│   ├── sanitizeUrl.ts
+│   └── schemaUtils.ts
+├── assets/           # Images
+└── App.tsx           # Root component and routing
 api/                  # Vercel serverless API routes
 ├── certificate/
 │   ├── status.ts
 │   └── submit.ts
-google-apps-script/   # Google Apps Script configuration
+google-apps-script/   # Google Apps Script code and setup guide
 ├── Code.gs
 └── SETUP.md
-public/               # Static files (favicon, sitemap, robots.txt)
-firestore.rules       # Firestore Security Rules
-storage.rules         # Storage Security Rules
-vercel.json           # Vercel routing + security headers
+public/               # Static files (favicons, sitemap, robots.txt, logo)
+firestore.rules       # Firestore Security Rules (placeholder admin emails)
+storage.rules         # Storage Security Rules (placeholder admin emails)
+vercel.json           # Vercel routing and security headers
 .env.example          # Environment variable template (safe to commit)
 ```
 
@@ -384,7 +404,7 @@ vercel.json           # Vercel routing + security headers
 
 ## Development Notes
 
-Developed with assistance from **Claude (Anthropic)** for code generation, debugging, and code/security auditing.
+Developed with assistance from **Claude (Anthropic)** for code generation, debugging, and code and security review.
 
 All architectural decisions, content, design direction, and final implementation were led and managed by **Kazi Shakib**.
 
@@ -401,7 +421,6 @@ All architectural decisions, content, design direction, and final implementation
 
 The source code in this repository is released under the [MIT License](LICENSE).
 
-- `src/App.tsx`, `src/pages/TermsPage.tsx` and `src/pages/PrivacyPage.tsx` carry `Apache-2.0` license headers. Those headers are kept as they are.
-- The MIT License covers source code only. The BAFSDBC name, logo, member, sponsor and event images, and other club content (including everything in `public/` and `src/assets/`) are **not** licensed for reuse.
+The MIT License covers source code only. The BAFSDBC name and logo, member, sponsor, and event images, and other club content (including everything in `public/` and `src/assets/`) are **not** licensed for reuse. See [NOTICE](NOTICE) for details.
 
 Copyright (c) 2026 BAF Shaheen College Dhaka Business Club (BAFSDBC).
