@@ -779,8 +779,8 @@ function GenericManager({ collectionName, title, struct, isBlog = false, default
     // Server-side style validation: enforce field limits before writing to Firestore
     for (const key of Object.keys(struct)) {
       const val = form[key] || '';
-    const isDataImage = typeof val === 'string' && val.startsWith('data:image/');
-const limit = isDataImage ? 900000 : (FIELD_LIMITS[key] ?? 2000);
+      const isDataImage = typeof val === 'string' && val.startsWith('data:image/');
+      const limit = isDataImage ? 900000 : (FIELD_LIMITS[key] ?? 2000);
       if (typeof val === 'string' && val.length > limit) {
         alert(`"${key}" exceeds maximum allowed length of ${limit} characters.`);
         return;
