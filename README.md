@@ -260,7 +260,7 @@ The admin panel is protected by a **two-layer server-side system**:
 **To authorize an admin account:**
 
 1. Open `firestore.rules` and `storage.rules`
-2. Add the Google account email to the `isAdmin()` function's email list in both files
+2. Add the Google account email to the `isAdmin()` function's email list in both files. The rules in this repository use placeholder addresses (`admin1@gmail.com`, `admin2@gmail.com`): replace them with the real admin emails before running `firebase deploy`, otherwise admins will be locked out
 3. Deploy both rule sets:
 ```bash
 firebase deploy --only firestore:rules,storage:rules
@@ -293,7 +293,7 @@ Firebase Servers (Firestore Rules / Storage Rules)
 │  isAdmin() checks:
 │    ✅ request.auth != null
 │    ✅ email_verified == true
-│    ✅ email in hardcoded allowlist
+│    ✅ email in the allowlist inside the rules
 │
 │  All authorization decisions are made here — never in the client
 │
@@ -397,4 +397,11 @@ All architectural decisions, content, design direction, and final implementation
 
 ---
 
-© 2026 BAF Shaheen College Dhaka Business Club (BAFSDBC). All rights reserved.
+## License
+
+The source code in this repository is released under the [MIT License](LICENSE).
+
+- `src/App.tsx`, `src/pages/TermsPage.tsx` and `src/pages/PrivacyPage.tsx` carry `Apache-2.0` license headers. Those headers are kept as they are.
+- The MIT License covers source code only. The BAFSDBC name, logo, member, sponsor and event images, and other club content (including everything in `public/` and `src/assets/`) are **not** licensed for reuse.
+
+Copyright (c) 2026 BAF Shaheen College Dhaka Business Club (BAFSDBC).
