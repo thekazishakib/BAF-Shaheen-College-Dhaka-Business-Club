@@ -242,11 +242,10 @@ export function BlogSlider() {
                     </span>
                   </div>
 
-                  {/* Content — always visible on mobile, hover on desktop */}
+                  {/* Content */}
                   <div className="absolute inset-0 p-5 sm:p-7 flex flex-col justify-end z-10">
                     {blog.date && (
-                      <span className="text-[9px] sm:text-[10px] text-baf-cyan font-black uppercase tracking-[0.15em] mb-2 sm:mb-3
-                        sm:translate-y-3 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-400 delay-75">
+                      <span className="text-[9px] sm:text-[10px] text-baf-cyan font-black uppercase tracking-[0.15em] mb-2 sm:mb-3">
                         {blog.date}
                       </span>
                     )}
@@ -254,13 +253,11 @@ export function BlogSlider() {
                       {blog.title}
                     </h3>
                     {blog.excerpt && (
-                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3
-                        sm:opacity-0 sm:translate-y-3 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-400 delay-75 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">
                         {renderExcerpt(blog.excerpt, 100)}
                       </p>
                     )}
-                    <div className="flex items-center gap-1.5 text-baf-cyan text-xs sm:text-sm font-semibold
-                      sm:opacity-0 sm:translate-y-3 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-400 delay-100">
+                    <div className="flex items-center gap-1.5 text-baf-cyan text-xs sm:text-sm font-semibold">
                       <span>Read more</span>
                       <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
