@@ -1,24 +1,13 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import { defineConfig } from 'vite';
 
-// SECURITY: Do NOT define server-side secrets here.
-// Any key placed in `define` is baked into the client JS bundle and is
-// visible to every user via browser DevTools.
-// If you need Gemini or other AI APIs, route calls through a server-side
-// function (e.g. a Vercel Edge Function) that holds the key privately.
+// SECURITY: Do not put secrets in this file. Anything added to `define` is
+// compiled into the public client bundle. Server-side keys belong in Vercel
+// environment variables and are only used from the api/ functions.
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '.'),
-    },
-  },
-  server: {
-    hmr: process.env.DISABLE_HMR !== 'true',
-  },
-  // Prevent accidental exposure of env vars without VITE_ prefix
+  // Only variables prefixed with VITE_ are exposed to the client.
   envPrefix: 'VITE_',
 });
