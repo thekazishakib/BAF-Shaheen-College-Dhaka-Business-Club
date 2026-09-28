@@ -18,7 +18,7 @@ service cloud.firestore {
     }
 
     match /certificates/{certId} {
-      allow read:   if true;
+      allow read:   if isAdmin();
       allow create, delete: if isAdmin();
       allow update: if isAdmin()
         || (
