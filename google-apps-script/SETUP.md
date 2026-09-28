@@ -55,7 +55,7 @@ To submit responses programmatically, you must find the form's action URL and qu
 4. Set up Script Properties (configuration parameters):
    - Go to **Project Settings** (gear icon in the left-hand menu of Apps Script editor).
    - Under **Script Properties**, add the following properties:
-     - `SHARED_SECRET`: Select a strong secret string (e.g., `s3cr3t_p4ss_f0r_b4fsdbc`).
+     - `SHARED_SECRET`: Select a strong secret string (e.g., `<your-random-secret>`).
      - `SPREADSHEET_ID`: Paste your Google Sheet ID.
      - `RESPONSE_SHEET_NAME`: Paste the sheet tab name (e.g., `Form Responses 1`).
      - `GOOGLE_FORM_ACTION_URL`: Paste the Google Form response URL.
