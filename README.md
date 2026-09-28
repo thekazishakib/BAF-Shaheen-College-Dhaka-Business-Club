@@ -423,4 +423,4 @@ The source code in this repository is released under the [MIT License](LICENSE).
 
 The MIT License covers source code only. The BAFSDBC name and logo, member, sponsor, and event images, and other club content (including everything in `public/` and `src/assets/`) are **not** licensed for reuse. See [NOTICE](NOTICE) for details.
 
-Copyright (c) 2026 BAF Shaheen College Dhaka Business Club (BAFSDBC).
+Copyright (c) 2026 Kazi Shakib.
