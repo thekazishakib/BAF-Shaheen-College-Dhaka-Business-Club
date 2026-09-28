@@ -96,12 +96,10 @@ C:\Users\kazis\Downloads\11\test-main
 All administrative changes must respect the security boundaries defined in the root rules files:
 
 ### Firestore Rules (`firestore.rules`)
-- **Admin Verification**: Uses `isAdmin()` checking if the authenticated user has a verified Google email matching the strict allowlist:
-  - `businessclub.bafsd@gmail.com`
-  - `alamsharifulshourav@gmail.com`
+- **Admin Verification**: Uses `isAdmin()` checking if the authenticated user has a verified Google email matching an email allowlist kept in `firestore.rules` and `storage.rules` (the repository uses placeholder addresses; real admin emails are set only when deploying rules).
 - **Rules Mapping**:
   - `/adminVerify/token`: Only readable by authenticated admins.
-  - `/certificates/{certId}`: Open read. Creation and deletion restricted to admins. Update is only allowed for the `downloaded` field if the certificate email matches the user's verified token email.
+  - `/certificates/{certId}`: Read, creation and deletion restricted to admins. Update is only allowed for the `downloaded` field if the certificate email matches the user's verified token email.
   - Other collections (`events`, `blogs`, `team`, `gallery`, `sponsors`, `testimonials`, `singleton`): Open read to public; write restricted to admins.
 
 ### Firebase Storage Rules (`storage.rules`)
