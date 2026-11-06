@@ -16,14 +16,14 @@
 
 This is the official website for the **BAF Shaheen College Dhaka Business Club (BAFSDBC)**, established in 2015. The website acts as a public information portal for students, sponsors, and partners. It also contains an admin dashboard for managing content and an automated e-certificate delivery system.
 
-The application is a single-page application (SPA) with a responsive interface, dynamic Firebase-backed sections (events, blogs, team listings, gallery, testimonials), a secure admin content dashboard, and a serverless certificate proxy backend.
+The application is a single-page application (SPA) with a responsive interface, dynamic Firebase-backed sections (events, blogs, team listings, gallery, testimonials), an authenticated admin content dashboard, and a serverless certificate proxy backend.
 
 ---
 
 ## Main Features
 
 - **Responsive Homepage**: Landing page with the club intro, leadership committee, sponsors carousel, student testimonials, and dynamic FAQ lists.
-- **About Page**: History, vision, and core mission of the club, with a dynamic "Startup Roadmap" component.
+- **About Page**: Club introduction, mission, vision, skills, impact statistics, and a contact call to action.
 - **Events Listing**: Active, upcoming, and archived events, workshops, and business seminars, loaded from Firestore.
 - **Team / Executive Committee Page**: Grid layout of the executive committee, directors, and members.
 - **Gallery Page**: Snapshots and key moments from previous events and club programs.
@@ -66,7 +66,7 @@ The application is a single-page application (SPA) with a responsive interface, 
 | URL Path | Page / Purpose | Data-Driven / Dynamic |
 | :--- | :--- | :--- |
 | `/` | **Home**: Hero, incharges, reviews, and FAQs | Yes (Firestore) |
-| `/about` | **About Us**: Club history, mission, and Startup Roadmap | Yes (Firestore) |
+| `/about` | **About Us**: Club introduction, mission, vision, skills, and impact | Yes (Firestore) |
 | `/events` | **Events**: Active and archived workshops, seminars, and registrations | Yes (Firestore) |
 | `/team` | **Executive Committee**: Board, directors, and members | Yes (Firestore) |
 | `/gallery` | **Gallery**: Photos from previous club activities | Yes (Firestore) |
@@ -195,40 +195,97 @@ git clone https://github.com/thekazishakib/BAF-Shaheen-College-Dhaka-Business-Cl
 cd BAF-Shaheen-College-Dhaka-Business-Club
 ```
 
-### 2. Install dependencies
+### 2. Install locked dependencies
+
+Run commands from the directory containing `package.json` and `package-lock.json`. If using a downloaded ZIP, extract it first.
+
 ```bash
-npm install
+npm ci
 ```
 
 ### 3. Configure environment variables
 ```bash
 cp .env.example .env
 ```
-Fill in your values in `.env`. `.env.example` lists every required key.
+On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp`. Fill in your values in `.env`; `.env.example` lists the configuration keys. Local Vite development serves the frontend only. Certificate API testing requires a Vercel environment or an appropriate local serverless setup.
 
 ### 4. Run locally
 ```bash
 npm run dev
 ```
 
-### 5. Build for production
+### 5. Validate and build
+
 ```bash
+npm run lint
 npm run build
+npm audit
 ```
+
+`lint` runs TypeScript checking (`tsc --noEmit`). The production build is written to `dist/`. Use `npm run preview` to inspect the built frontend locally; it does not run the Vercel certificate APIs.
 
 ---
 
 ## Deployment
 
-The site is hosted on **Vercel**.
+The project is configured for **Vercel**. Deploy from the directory containing `package.json`, not an outer ZIP-extraction folder.
 
-1. Push your code to GitHub.
-2. Go to [vercel.com](https://vercel.com), choose **New Project**, and import the repository.
-3. Set **Framework Preset** to `Vite`.
-4. Add every variable from `.env` under **Settings → Environment Variables**.
-5. Click **Deploy**.
+### Existing Vercel project (CLI)
 
-`vercel.json` already contains SPA routing and security headers (HSTS, CSP, X-Frame-Options, and more).
+```bash
+vercel link
+vercel
+```
+
+Select the existing `bafsdbc-website` project in the appropriate team. `vercel` creates a preview deployment. After checking the preview, publish to production:
+
+```bash
+vercel --prod
+```
+
+The production flag is `--prod`, not `prod--`. If Vercel asks whether to pull environment variables, choose **No** when they are already configured on that project and you do not need local copies. Pulling variables is for local use; declining does not delete the deployed configuration. Ensure required variables are enabled for the intended **Preview** or **Production** environment.
+
+### GitHub deployment
+
+1. Commit the extracted project files, including `package.json` and `package-lock.json`; do not commit the ZIP, `.env`, `node_modules`, `dist`, or `.vercel`.
+2. Connect the GitHub repository to the existing Vercel project. If setting up a separate project, import the repository in Vercel.
+3. Set **Framework Preset** to `Vite`. The root directory must point to the folder containing `package.json`.
+4. Use `npm ci` for installation, `npm run build` for the build command, and `dist` for the output directory.
+5. Configure the keys listed in `.env.example` in Vercel Environment Variables, with the correct deployment scopes.
+6. Check a preview before merging into the configured production branch.
+
+`vercel.json` contains SPA routing and HTTP security headers. Vercel deployment does not deploy Firebase rules or configure Google Apps Script/AutoCrat.
+
+### Public URL and search metadata
+
+The source currently uses **https://bafsdbc.vercel.app** as its canonical public URL. The Vercel project name alone does not establish which domain is canonical. Confirm the domain assigned to the project before changing metadata.
+
+If the public domain changes, update URL references consistently in `index.html`, `src/App.tsx`, `public/sitemap.xml`, `public/robots.txt`, and `public/llms.txt`. Also review `CERTIFICATE_ALLOWED_ORIGIN`, Firebase authorized domains, and any domain restrictions used by connected services. Do not use a temporary preview deployment URL as the canonical URL.
+
+Google controls indexing and search-result wording; publishing to GitHub alone does not make the deployed website appear in search.
+
+---
+
+## Verified Release Status
+
+Last checked: **6 November 2026**, using Node.js 24 on Windows.
+
+The startup curriculum section has been removed from the About page, including its introduction, attribution, roadmap, founder challenge, and Hard Truths. Its unused component and references were removed. Existing club content and the contact call to action remain.
+
+| Check | Recorded result |
+|---|---|
+| `npm run lint` | Passed |
+| `npm run build` | Passed |
+| `npm audit` | 0 known advisories after dependency updates |
+| About page at 1440 x 1000 and 390 x 844 | Removed section absent; CTA retained; Contact Us modal opened; no horizontal overflow or uncaught JavaScript errors |
+| `public/llms.txt` format | Passed with six Markdown page links |
+| Release ZIP | Project files at archive root; no private `.env`, dependency folder, or deployment-state folder included |
+
+Browser checks used dummy Firebase configuration and blocked external requests. Live Firebase data, Google sign-in, admin authorization, certificate generation, email delivery, and contact-form submission were **not** tested. This is not a full production security audit. The build reports a non-fatal warning about a Firebase chunk exceeding 500 kB.
+
+The lockfile contains compatible dependency updates. `package.json` pins the transitive `@grpc/grpc-js` dependency to **1.13.6** through `overrides` to address the remaining advisory without downgrading Firebase. Review this override when upgrading Firebase; remove it only after verifying the resolved dependency and rerunning checks. Audit results are a dated snapshot, not a permanent security guarantee.
+
+Development skills and plugins are installed separately on the maintainer's machine. They are not website runtime dependencies and are not required to deploy this repository.
 
 ---
 
@@ -282,10 +339,7 @@ The rules in this repository use **placeholder** addresses (`admin1@gmail.com`, 
    ```bash
    firebase deploy --only firestore:rules
    ```
-3. Discard the local change so real emails never reach the public repository:
-   ```bash
-   git checkout firestore.rules storage.rules
-   ```
+3. Before committing, review `git diff` and keep private deployment configuration out of the public repository. Preserve any unrelated local rule changes; do not overwrite them as part of cleanup.
 
 **Never commit real admin emails to this repository.** Also do not add `VITE_ADMIN_*` variables or compare emails on the client, because everything with a `VITE_` prefix ends up in the public JavaScript bundle.
 
@@ -403,7 +457,7 @@ vercel.json           # Vercel routing and security headers
 
 ## Development Notes
 
-Developed with assistance from **Claude (Anthropic)** for code generation, debugging, and code and security review.
+Developed with assistance from **Claude (Anthropic)** for code generation, debugging, and review. **OpenAI Codex** assisted with the startup-section removal, dependency updates, documentation, and the local checks recorded above.
 
 All architectural decisions, content, design direction, and final implementation were led and managed by **Kazi Shakib**.
 
