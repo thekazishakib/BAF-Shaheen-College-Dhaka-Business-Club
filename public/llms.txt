@@ -54,33 +54,27 @@ business competitions, leadership camps, and inter-college events.
 # ============================================================
 
 ## Homepage
-- URL: https://bafsdbc.vercel.app/
-- Description: Welcome page introducing BAFSDBC, its mission, recent events,
+- [Homepage](https://bafsdbc.vercel.app/): Welcome page introducing BAFSDBC, its mission, recent events,
   team leaders, gallery, testimonials, blog highlights, and FAQ.
 
 ## About BAFSDBC
-- URL: https://bafsdbc.vercel.app/about
-- Description: History, mission, vision, values, startup roadmap, and
+- [About BAFSDBC](https://bafsdbc.vercel.app/about): History, mission, vision, values, and
   statistics about the club's impact since 2015.
 
 ## Events & Workshops
-- URL: https://bafsdbc.vercel.app/events
-- Description: Past and upcoming workshops, seminars, business competitions,
+- [Events & Workshops](https://bafsdbc.vercel.app/events): Past and upcoming workshops, seminars, business competitions,
   and leadership events organized by BAFSDBC.
 
 ## Executive Team
-- URL: https://bafsdbc.vercel.app/team
-- Description: Student leaders, executive committee members, and faculty
+- [Executive Team](https://bafsdbc.vercel.app/team): Student leaders, executive committee members, and faculty
   advisors of BAF Shaheen College Dhaka Business Club.
 
 ## Gallery
-- URL: https://bafsdbc.vercel.app/gallery
-- Description: Photo gallery of BAFSDBC activities, events, workshops,
+- [Gallery](https://bafsdbc.vercel.app/gallery): Photo gallery of BAFSDBC activities, events, workshops,
   competitions, and student achievements.
 
 ## Business Insights Blog
-- URL: https://bafsdbc.vercel.app/blogs
-- Description: Articles, insights, and student-authored perspectives on
+- [Business Insights Blog](https://bafsdbc.vercel.app/blogs): Articles, insights, and student-authored perspectives on
   business, leadership, and entrepreneurship. Each article at /blogs/:slug.
 
 # ============================================================

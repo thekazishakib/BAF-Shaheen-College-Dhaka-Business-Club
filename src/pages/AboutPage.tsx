@@ -7,7 +7,6 @@ const img1 = "";
 import img3 from '../../public/BAFSDBC_Logo_BG_removed.png';
 import { useContactModal } from '../components/ContactModalContext';
 import { handleFirestoreError, OperationType } from '../lib/firebaseUtils';
-import { StartupRoadmap } from '../components/StartupRoadmap';
 
 export default function AboutPage() {
   const { openModal } = useContactModal();
@@ -198,10 +197,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        {/* Section 4: Startup Roadmap */}
-        <StartupRoadmap />
-
-        {/* Section 5: Call to Action */}
+        {/* Section 4: Call to Action */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

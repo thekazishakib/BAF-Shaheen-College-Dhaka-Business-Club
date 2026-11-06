@@ -364,7 +364,6 @@ src/
 │   ├── Navbar.tsx
 │   ├── RouteSkeleton.tsx
 │   ├── Sponsors.tsx
-│   ├── StartupRoadmap.tsx
 │   └── TestimonialSlider.tsx
 ├── pages/            # Page-level components
 │   ├── Home.tsx
